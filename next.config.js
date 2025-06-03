@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   reactStrictMode: true,
-  swcMinify: false,
+  swcMinify: true,
   images: { unoptimized: true },
   eslint: {
     ignoreDuringBuilds: true,
