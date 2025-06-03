@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 210 100% 35%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 11%;
+    --chart-1: 142 76% 36%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 24 100% 50%;
+    --chart-4: 272 76% 53%;
+    --chart-5: 36 100% 50%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 100% 35%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212 40% 86%;
+    --chart-1: 142 70% 45%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 24 95% 53%;
+    --chart-4: 272 76% 53%;
+    --chart-5: 36 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Add global page spacing */
+  main {
+    @apply px-4 sm:px-6 lg:px-8 py-8;
+  }
+  
+  .page-container {
+    @apply max-w-7xl mx-auto space-y-8;
+  }
+}
+
+@layer components {
+  .blender-panel {
+    @apply bg-blender-dark text-white rounded border border-gray-700;
+  }
+  
+  .blender-button {
+    @apply px-3 py-1.5 bg-blender-primary hover:bg-blender-secondary text-white rounded transition-colors;
+  }
+  
+  .duolingo-button {
+    @apply px-4 py-2 bg-duolingo-green hover:bg-duolingo-green/90 text-white font-bold rounded-xl transition-colors shadow-md;
+  }
+  
+  .skill-node {
+    @apply w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition-all duration-300;
+  }
+  
+  .skill-node-locked {
+    @apply bg-gray-400 text-gray-600;
+  }
+  
+  .skill-node-active {
+    @apply bg-duolingo-green text-white animate-pulse;
+  }
+  
+  .skill-node-completed {
+    @apply bg-duolingo-blue text-white;
+  }
+  
+  .skill-path {
+    @apply h-1 bg-gray-300;
+  }
+  
+  .skill-path-completed {
+    @apply h-1 bg-duolingo-blue;
+  }
+  
+  .blender-workspace {
+    @apply bg-blender-dark text-white border border-gray-700 rounded-md;
+  }
+  
+  .blender-toolbar {
+    @apply flex items-center gap-2 p-2 bg-blender-primary border-b border-gray-700;
+  }
+  
+  .blender-panel-header {
+    @apply bg-blender-primary text-white p-2 text-sm font-medium;
+  }
+  
+  .blender-panel-content {
+    @apply p-2 text-sm;
+  }
+  
+  .progress-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full bg-duolingo-green transition-all duration-500;
+  }
+  
+  /* Chat assistant styles */
+  .chat-bubble {
+    @apply relative p-4 rounded-lg max-w-md mb-4 bg-card/95 backdrop-blur-sm border shadow-lg;
+  }
+  
+  .chat-bubble-assistant {
+    @apply text-foreground;
+  }
+  
+  /* Confetti animation */
+  @keyframes confetti {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+  
+  .confetti {
+    @apply fixed pointer-events-none;
+    animation: confetti 2s ease-out forwards;
+  }
+}
